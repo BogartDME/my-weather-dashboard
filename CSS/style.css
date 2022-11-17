@@ -1,0 +1,18 @@
+
+header {
+    background-color: rgb(31, 84, 184);
+    background-image: linear-gradient(to left, white, blue);
+    color: azure;
+    font-size: 50px;
+    text-align: center;
+    height: 70px;
+}
+
+.search{
+    /* background-image: linear-gradient(to left, white, blue); */
+    background-color: blue;
+    color: azure;
+    padding: 10px 120px;
+    font-size: 18px;
+    float left: ;
+}
