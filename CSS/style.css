@@ -1,6 +1,7 @@
 
+
 header {
-    background-color: rgb(31, 84, 184);
+    background-color: blue;
     background-image: linear-gradient(to left, white, blue);
     color: azure;
     font-size: 50px;
@@ -8,11 +9,34 @@ header {
     height: 70px;
 }
 
+.container{}
+
+.city-search{
+    display:inline-block;
+}
+
 .search{
     /* background-image: linear-gradient(to left, white, blue); */
     background-color: blue;
     color: azure;
-    padding: 10px 120px;
+    padding: 10px 160px;
     font-size: 18px;
     float left: ;
+}
+
+.search-history{
+    border: black solid 2px;
+    width: 400px;
+}
+
+.current-day{
+    border: black solid 2px;
+    width: 1200px;
+}
+
+.five-day{
+    
+}
+.card{
+    background-image: linear-gradient(to top, white, blue);
 }
