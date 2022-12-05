@@ -2,13 +2,13 @@
 // var userInput= querySelector(".city-search");
 //current day weather request url below 
 const APIKey = "b01c800a881fa88d5931029a8b88525c";
-const latLon = 
+// const latLon = 
 const requestUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=33.44&lon=-94.04&appid=${APIKey}`;
 
 // var responseText = document.getElementById('response-text');
 const citySearch = document.getElementById("city-search");
-
-function latLon()
+const searchButton = document.querySelector()
+// function latLon()
 
 
 
@@ -25,6 +25,10 @@ function get5day(requestUrl) {
 }
 
 get5day(requestUrl);
+
+
+
+
 
 
 

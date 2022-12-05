@@ -38,5 +38,5 @@ header {
     
 }
 .card{
-    background-image: linear-gradient(to top, white, blue);
+    background-image: linear-gradient(to bottom, white, blue);
 }
