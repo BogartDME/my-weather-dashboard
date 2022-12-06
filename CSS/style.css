@@ -19,8 +19,8 @@ header {
     /* background-image: linear-gradient(to left, white, blue); */
     background-color: blue;
     color: azure;
-    padding: 10px 140px;
-    font-size: 18px;
+    padding: 8px 135px;
+    font-size: 22px;
     float left: ;
 }
 
@@ -32,6 +32,7 @@ header {
 .current-day{
     border: black solid 2px;
     width: 1200px;
+    font-size: 26px;
 }
 
 .five-day{

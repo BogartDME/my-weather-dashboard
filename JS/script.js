@@ -3,28 +3,47 @@
 //current day weather request url below 
 const APIKey = "b01c800a881fa88d5931029a8b88525c";
 // const latLon = 
-const requestUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=33.44&lon=-94.04&appid=${APIKey}`;
+const requestUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=33.44&lon=-94.04&units=imperial&appid=${APIKey}`;
 
 // var responseText = document.getElementById('response-text');
-const citySearch = document.getElementById("city-search");
-const searchButton = document.querySelector()
+
+// const searchButton = document.querySelector()
+
 // function latLon()
-
-
+function fiveDayInfo(){ 
+const citySearch = document.getElementById("city-search");
+const city = document.getElementById("");
+// city.innerHTML
+ 
+}
 
 function get5day(requestUrl) {
   fetch(requestUrl)
     .then(function (response) {
-      console.log(response);
-      if (response.status === 200) {
-      }
       return response.json();
-  }).then(function (data){ 
+    })
+    .then(function(response){
+      console.log(response);
+    })
+      // console.log(response);
+      // if (response.status === 200) {
+      // }
+    .then(function (data){ 
+    for(i=0; i<5; i++){
+      document.getElementById("day" + (i++) + "temp"),innerHTML = "Temp:" + Number(data.list[i].main.temp); 
+      }
+    for(i=0; i<5; i++){
+        document.getElementById("day" + (i++) + "wind"),innerHTML = "Wind:" + Number(data.list[i].wind.speed);
+      }
+    for(i=0; i<5; i++){
+      document.getElementById("day" + (i++) + "humidity"),innerHTML = "Humidity:" + Number(data.list[i].main.humidity);
+    }
     console.log(data)
-  });
+  })
 }
 
 get5day(requestUrl);
+
 
 
 
@@ -49,4 +68,3 @@ get5day(requestUrl);
 //call API for five day forecast
 
 //create a function for local storage
-
