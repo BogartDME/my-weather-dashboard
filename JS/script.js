@@ -22,21 +22,22 @@ function get5day(requestUrl) {
     .then(function (response) {
       return response.json();
     })
-    .then(function(response){
-      console.log(response);
-    })
+    // .then(function(response){
+    //   console.log(response);
+    // })
       // console.log(response);
       // if (response.status === 200) {
       // }
-    .then(function (data){ 
+    .then(function (response){ 
+      console.log("DATA", response.list)
     for(i=0; i<5; i++){
-      document.getElementById("day" + (i++) + "temp"),innerHTML = "Temp:" + Number(data.list[i].main.temp); 
+      document.getElementById("day0temp" + (i++) + "temp").innerHTML = "Temp:" + Number(response.list[i].main.temp); 
       }
     for(i=0; i<5; i++){
-        document.getElementById("day" + (i++) + "wind"),innerHTML = "Wind:" + Number(data.list[i].wind.speed);
+        document.getElementById("day0wind" + (i++) + "wind").innerHTML = "Wind:" + Number(response.list[i].wind.speed);
       }
     for(i=0; i<5; i++){
-      document.getElementById("day" + (i++) + "humidity"),innerHTML = "Humidity:" + Number(data.list[i].main.humidity);
+      document.getElementById("day0humidity" + (i++) + "humidity").innerHTML = "Humidity:" + Number(response.list[i].main.humidity);
     }
     console.log(data)
   })
