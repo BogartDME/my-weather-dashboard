@@ -19,9 +19,6 @@ function currentDay()
     {
       console.log(data);
       get5day(data[0].lat, data[0].lon)
-    })
-    .then(function (data)
-    {
       console.log("DATA", data);
       {
         for (let i = 0; i < data.list.length; i++)
