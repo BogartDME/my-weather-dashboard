@@ -1,58 +1,79 @@
-//create fetch for weather API
 // var userInput= querySelector(".city-search");
-//current day weather request url below 
+//current day weather request url below
 const APIKey = "b01c800a881fa88d5931029a8b88525c";
-// const latLon = 
-const requestUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=33.44&lon=-94.04&units=imperial&appid=${APIKey}`;
 
-// var responseText = document.getElementById('response-text');
+function currentDay() 
+{
+  // user is deciding the city to find the forecast
+  const citySearch = document.getElementById("city-search");
+  const city = document.getElementById("");
+  //user city search is plugged into the cityURL
+  const cityURL = `https://api.openweathermap.org/geo/1.0/direct?q=${citySearch.value}&appid=${APIKey}`;
 
-// const searchButton = document.querySelector()
-
-// function latLon()
-function fiveDayInfo(){ 
-const citySearch = document.getElementById("city-search");
-const city = document.getElementById("");
-// city.innerHTML
- 
-}
-
-function get5day(requestUrl) {
-  fetch(requestUrl)
-    .then(function (response) {
+  fetch(cityURL)
+    .then(function (response) 
+    {
       return response.json();
     })
-    // .then(function(response){
-    //   console.log(response);
-    // })
-      // console.log(response);
-      // if (response.status === 200) {
-      // }
-    .then(function (response){ 
-      console.log("DATA", response.list)
-    for(i=0; i<5; i++){
-      document.getElementById("day0temp" + (i++) + "temp").innerHTML = "Temp:" + Number(response.list[i].main.temp); 
+    .then(function (data) 
+    {
+      console.log(data);
+      get5day(data[0].lat, data[0].lon)
+    })
+    .then(function (response)
+    {
+      console.log("DATA", response.list);
+      {
+        document.getElementById("current-city").innerHTML =
+          "Temp:" + Number(response.list[0].Local_names.name);
+
+        document.getElementById("current-date").innerHTML =
+          "Temp:" + Number(response.list[0].main.temp);
+
+        document.getElementById("current-temp").innerHTML =
+          "Temp:" + Number(response.list[0].main.temp);
+
+        document.getElementById("current-wind").innerHTML =
+          "Wind:" + Number(response.list[0].wind.speed);
+          
+        document.getElementById("current-humidity").innerHTML =
+          "Humidity:" + Number(response.list[0].main.humidity);
+
       }
-    for(i=0; i<5; i++){
-        document.getElementById("day0wind" + (i++) + "wind").innerHTML = "Wind:" + Number(response.list[i].wind.speed);
-      }
-    for(i=0; i<5; i++){
-      document.getElementById("day0humidity" + (i++) + "humidity").innerHTML = "Humidity:" + Number(response.list[i].main.humidity);
     }
-    console.log(data)
-  })
+    )
+}
+//this function searches by lat and lon provided by currentDay function and also fills out the info for the five day forecast
+function get5day(lat, lon) 
+{
+  const requestUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
+  fetch(requestUrl)
+    .then(function (response) 
+    {
+      return response.json();
+    })
+    .then(function (response) 
+    {
+      console.log("DATA", response.list);
+      for (let i = 1; i < 6; i++) 
+      {
+        document.querySelector(".day-temp-" + i).innerHTML =
+          "Temp:" + Number(response.list[i].main.temp);
+      }
+      for (i = 1; i < 6; i++) 
+      {
+        document.querySelector(".day-wind-" + i).innerHTML =
+          "Wind:" + Number(response.list[i].wind.speed);
+      }
+      for (i = 1; i < 6; i++) 
+      {
+        document.querySelector(".day-humidity-" + i).innerHTML =
+          "Humidity:" + Number(response.list[i].main.humidity);
+      }
+    });
 }
 
-get5day(requestUrl);
-
-
-
-
-
-
-
-
-
+// get5day(requestUrl);
 
 // element.addEventListener("click", myFunction);
 

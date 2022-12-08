@@ -16,7 +16,7 @@
         <aside  class="col-sm-3 city-search">  
             <h2>Search for a City:<h2>
             <input id="city-search" type="text" placeholder="Type City Here">
-            <button onclick="FiveDayInfo" class="search">Search</button>
+            <button onclick="currentDay()" class="search">Search</button>
             <ul class="search-history">
                 <li class="searched">City</li>
                 <li class="searched">City</li>
@@ -26,11 +26,11 @@
             </ul>
         </aside>
         <section class="col sm-9 current-day">
-            <h1 class="city">City</h1>  
-            <h2 class="date">Date</h2>
-            <p id="temp">TEMP:</p>
-            <p id="wind">WIND:</p> 
-            <p id="humidity">HUMIDITY:</p>
+            <h1 id="current-city">City</h1>  
+            <h2 id="current-date">Date</h2>
+            <p id="current-temp">TEMP:</p>
+            <p id="current-wind">WIND:</p> 
+            <p id="current-humidity">HUMIDITY:</p>
         </section>
     </div>
     <section class="h2 five-day">5 Day Forecast:
@@ -38,12 +38,10 @@
             <div class="col-sm-2">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="card-title day">Special title treat</h1>
-                        <p class="h5 card-text day0temp"></p>
-                        <p class="h5 card-text day0wind"></p>
-                        <p class="h5 card-text day0humidity"></p>
-                        With supporting text below as a natural lead-in to additional
-                        content.
+                        <h1 class="card-title day"></h1>
+                        <p class="h5 card-text day-temp-1"></p>
+                        <p class="h5 card-text day-wind-1"></p>
+                        <p class="h5 card-text day-humidity-1"></p>
                         </p>
                     </div>
                 </div>
@@ -51,12 +49,11 @@
             <div class="col-sm-2">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="card-title day">Special title treat</h1>
-                        <p class="h5 card-text temp"></p>
-                        <p class="h5 card-text wind"></p>
-                        <p class="h5 card-text humidity"></p>
-                        With supporting text below as a natural lead-in to additional
-                        content.
+                        <h1 class="card-title day"></h1>
+                        <p class="h5 card-text day-temp-2"></p>
+                        <p class="h5 card-text day-wind-2"></p>
+                        <p class="h5 card-text day-humidity-2"></p>
+                        
                         </p>
                     </div>
                 </div>
@@ -64,12 +61,11 @@
             <div class="col-sm-2">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="card-title day">Special title treat</h1>
-                        <p class="h5 card-text temp"></p>
-                        <p class="h5 card-text wind"></p>
-                        <p class="h5 card-text humidity"></p>
-                        With supporting text below as a natural lead-in to additional
-                        content.
+                        <h1 class="card-title day"></h1>
+                        <p class="h5 card-text day-temp-3"></p>
+                        <p class="h5 card-text day-wind-3"></p>
+                        <p class="h5 card-text day-humidity-3"></p>
+                        
                         </p>
                     </div>
                 </div>
@@ -77,12 +73,11 @@
             <div class="col-sm-2">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="card-title day">Special title treat</h1>
-                        <p class="h5 card-text temp"></p>
-                        <p class="h5 card-text wind"></p>
-                        <p class="h5 card-text humidity"></p>
-                        With supporting text below as a natural lead-in to additional
-                        content.
+                        <h1 class="card-title day"></h1>
+                        <p class="h5 card-text day-temp-3"></p>
+                        <p class="h5 card-text day-wind-3"></p>
+                        <p class="h5 card-text day-humidity-3"></p>
+                        
                         </p>
                     </div>
                 </div>
@@ -90,12 +85,11 @@
             <div class="col-sm-2">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="card-title day">Special title treat</h1>
-                        <p class="h5 card-text temp"></p>
-                        <p class="h5 card-text wind"></p>
-                        <p class="h5 card-text humidity"></p>
-                        With supporting text below as a natural lead-in to additional
-                        content.
+                        <h1 class="card-title day"></h1>
+                        <p class="h5 card-text day-temp-5"></p>
+                        <p class="h5 card-text day-wind-5"></p>
+                        <p class="h5 card-text day-humidity-5"></p>
+                        
                         </p>
                     </div>
                 </div>
