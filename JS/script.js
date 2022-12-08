@@ -20,28 +20,33 @@ function currentDay()
       console.log(data);
       get5day(data[0].lat, data[0].lon)
     })
-    .then(function (response)
+    .then(function (data)
     {
-      console.log("DATA", response.list);
+      console.log("DATA", data);
       {
-        document.getElementById("current-city").innerHTML =
-          "Temp:" + Number(response.list[0].Local_names.name);
-
-        document.getElementById("current-date").innerHTML =
-          "Temp:" + Number(response.list[0].main.temp);
-
-        document.getElementById("current-temp").innerHTML =
-          "Temp:" + Number(response.list[0].main.temp);
-
-        document.getElementById("current-wind").innerHTML =
-          "Wind:" + Number(response.list[0].wind.speed);
-          
-        document.getElementById("current-humidity").innerHTML =
-          "Humidity:" + Number(response.list[0].main.humidity);
-
+        for (let i = 0; i < data.list.length; i++)
+        {
+          if (i===0)
+          {
+            document.getElementById("current-city").innerHTML =
+            "Temp:" + Number(data.list[i].Local_names.name);
+            
+            document.getElementById("current-date").innerHTML =
+            "Temp:" + Number(response.list[i].main.temp);
+            
+            document.getElementById("current-temp").innerHTML =
+            "Temp:" + Number(response.list[i].main.temp);
+            
+            document.getElementById("current-wind").innerHTML =
+            "Wind:" + Number(response.list[i].wind.speed);
+            
+            document.getElementById("current-humidity").innerHTML =
+            "Humidity:" + Number(response.list[i].main.humidity);
+          }
+          get5day(requestUrl);
+        }
       }
-    }
-    )
+    })
 }
 //this function searches by lat and lon provided by currentDay function and also fills out the info for the five day forecast
 function get5day(lat, lon) 
@@ -73,7 +78,6 @@ function get5day(lat, lon)
     });
 }
 
-// get5day(requestUrl);
 
 // element.addEventListener("click", myFunction);
 
@@ -85,7 +89,7 @@ function get5day(lat, lon)
 
 // 5 day call api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={b01c800a881fa88d5931029a8b88525c}
 
-//call API for current weather
+// call API for current weather
 
 //call API for five day forecast
 
