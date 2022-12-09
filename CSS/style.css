@@ -2,14 +2,16 @@
 
 header {
     background-color: blue;
-    background-image: linear-gradient(to left, white, blue);
-    color: azure;
+    background-image: linear-gradient(to left, rgb(99, 96, 96), blue);
+    color: rgb(106, 109, 109);
     font-size: 50px;
     text-align: center;
     height: 70px;
 }
+body{
+    background-color: rgb(170, 25, 25);
+}
 
-.container{}
 
 .city-search{
     display:inline-block;
@@ -21,7 +23,7 @@ header {
     color: azure;
     padding: 8px 135px;
     font-size: 22px;
-    float left: ;
+    /* float left: ; */
 }
 
 .search-history{

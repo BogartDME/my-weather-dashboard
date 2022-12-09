@@ -50,12 +50,12 @@ function currentDay()
   
   
   
-  
+  https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}
   
   //this function searches by lat and lon provided by currentDay function and also fills out the info for the five day forecast
   function get5day(lat, lon) 
   {
-    const requestUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
+    var requestUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
     fetch(requestUrl)
     .then(function (response) 
     {
@@ -63,21 +63,23 @@ function currentDay()
     })
     .then(function (response) 
     {
+      console.log(response);
       console.log("DATA", response.list);
       document.getElementById("current-temp").innerHTML = "Temp:  " + response.list[0].main.temp + "°";
       
       document.getElementById("current-wind").innerHTML = "Wind:  " + response.list[0].wind.speed + " mph";
       
       document.getElementById("current-humidity").innerHTML = "Humidity:  " + response.list[0].main.humidity;
-      let mainImg = document.querySelector(".main-icon");
-              let mainIcon = data.list[0].weather[0].icon;
-              mainImg.innerHTML = `<img src="http://openweathermap.org/img/wn/${mainIcon}@2x.png">`;
-              console.log(mainIcon); 
+      // let mainImg = document.querySelector(".main-icon");
+      //         // let mainIcon = forecast[0].weather[0].icon;
+      //         mainImg.innerHTML = `<img src="http://openweathermap.org/img/wn/${mainIcon}@2x.png">`;
+      //         console.log(mainIcon); 
       
       for (let i = 1; i < 6; i++) 
       {
         let iconImg = document.querySelector(".icon");
-        let icon = response.list[0].weather[0].icon;
+        let icon = response.weather[0].icon;
+        console.log(response);
         iconImg.innerHTML = `<img src="http://openweathermap.org/img/wn/${icon}@2x.png">`;
               console.log(icon); 
               
