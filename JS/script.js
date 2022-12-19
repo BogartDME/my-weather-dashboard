@@ -1,6 +1,10 @@
 // var userInput= querySelector(".city-search");
 //current day weather request url below
 const APIKey = "b01c800a881fa88d5931029a8b88525c";
+const searchButton = document.getElementById("search");
+// const el = document.getElementById("searchBtn"); 
+// console.log(el);
+// el.click();
 
 function currentDay() {
   // user is deciding the city to find the forecast
@@ -93,7 +97,7 @@ function saveLastCity(){
   };
   localStorage.setItem("city", JSON.stringify(city));
   // let storage = localStorage.getItem("city-search");
-};
+}
 
 function renderLastCity(){
   var lastCity = Json.parse(localStorage.getItem(city));
@@ -105,11 +109,8 @@ function renderLastCity(){
     return;
   }
 }
-const tempDiv = document.createElement("div")
-        tempDiv.classList.add('fiveDayDivs')
-        tempDiv.innerHTML= "Temp: " + response.list[i].main.temp;
 
-search.addEventListener("click", function(event){
+searchButton.addEventListener("click", function(event) {
   event.preventDefault();
   saveLastCity();
   renderLastCity();
@@ -117,6 +118,7 @@ search.addEventListener("click", function(event){
 
 function init() {
   renderLastCity(); 
+  console.log(renderLastCity);
 }
 
 init();
