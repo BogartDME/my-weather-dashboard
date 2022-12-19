@@ -47,7 +47,7 @@ function currentDay() {
         "Humidity:  " + response.list[0].main.humidity;
 
       
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 5; i++) {
         const forecastDiv = document.querySelector("#forecast-container")
         const colDiv = document.createElement("div")
         colDiv.classList.add("col-sm-2");
@@ -57,22 +57,27 @@ function currentDay() {
         cardDiv.classList.add("text-center");
         cardDiv.innerHTML=("Date:"); //get date working
         colDiv.append(cardDiv);
+        
         const iconImg = document.createElement("img");
         const imgIcon = response.list[i].weather[0].icon;
         iconImg.src = "http://openweathermap.org/img/wn/" + imgIcon + "@2x.png";
         document.body.appendChild(iconImg);
         colDiv.append(iconImg)
+        const descriptDiv = document.createElement("div")
+        descriptDiv.innerHTML= response.list[i].weather[0].description;
+        descriptDiv.classList.add('descriptDiv')
+        colDiv.append(descriptDiv)
         const tempDiv = document.createElement("div")
-        tempDiv.classList.add('text-center')
-        tempDiv.innerHTML=response.list[i].main.temp;
+        tempDiv.classList.add('fiveDayDivs')
+        tempDiv.innerHTML= "Temp: " + response.list[i].main.temp;
         colDiv.append(tempDiv)
         const windDiv = document.createElement("div")
-        windDiv.classList.add('text-center')
-        windDiv.innerHTML=response.list[i].wind.speed;
+        windDiv.classList.add('fiveDayDivs')
+        windDiv.innerHTML="Wind: " + response.list[i].wind.speed + " mph";
         colDiv.append(windDiv)
         const humidDiv = document.createElement("div")
-        humidDiv.classList.add('text-center')
-        humidDiv.innerHTML=response.list[i].main.humidity;
+        humidDiv.classList.add('fiveDayDivs')
+        humidDiv.innerHTML= "Humidity: " + response.list[i].main.humidity;
         colDiv.append(humidDiv)
         forecastDiv.append(colDiv)
       
@@ -82,3 +87,41 @@ function currentDay() {
 }
 
 //create a function for local storage
+function saveLastCity(){
+  var city = {
+    city: citySearch.value
+  };
+  localStorage.setItem("city", JSON.stringify(city));
+  // let storage = localStorage.getItem("city-search");
+};
+
+function renderLastCity(){
+  var lastCity = Json.parse(localStorage.getItem(city));
+
+  if (saveLastCity !== null) {
+    document.getElementById("city-search").innerHTML = lastCity;
+  } 
+  else {
+    return;
+  }
+}
+const tempDiv = document.createElement("div")
+        tempDiv.classList.add('fiveDayDivs')
+        tempDiv.innerHTML= "Temp: " + response.list[i].main.temp;
+
+search.addEventListener("click", function(event){
+  event.preventDefault();
+  saveLastCity();
+  renderLastCity();
+});
+
+function init() {
+  renderLastCity(); 
+}
+
+init();
+//   for (let i = 0; i < localStorage.length; i++) {
+//     const key = localStorage.key(i)
+//     console.log(`${key}: ${localStorage.getItem(key)}`)
+//   }
+// }
