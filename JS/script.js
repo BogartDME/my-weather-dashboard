@@ -1,14 +1,15 @@
 // var userInput= querySelector(".city-search");
 //current day weather request url below
 const APIKey = "b01c800a881fa88d5931029a8b88525c";
-const searchButton = document.getElementById("search");
+const searchButton = document.getElementById("searchBtn");
+const citySearch = document.getElementById("city-search");
 // const el = document.getElementById("searchBtn"); 
 // console.log(el);
 // el.click();
 
 function currentDay() {
   // user is deciding the city to find the forecast
-  const citySearch = document.getElementById("city-search");
+  // const citySearch = document.getElementById("city-search");
   const city = document.getElementById("");
   //user city search is plugged into the cityURL
   const cityURL = `https://api.openweathermap.org/geo/1.0/direct?q=${citySearch.value}&appid=${APIKey}`;
@@ -95,20 +96,22 @@ function saveLastCity(){
   var city = {
     city: citySearch.value
   };
-  localStorage.setItem("city", JSON.stringify(city));
-  // let storage = localStorage.getItem("city-search");
-}
-
-function renderLastCity(){
-  var lastCity = Json.parse(localStorage.getItem(city));
-
-  if (saveLastCity !== null) {
-    document.getElementById("city-search").innerHTML = lastCity;
-  } 
-  else {
-    return;
+  localStorage.setItem("city", JSON.stringify("city"));
+};
+  
+  function renderLastCity(){
+    var lastCity = JSON.parse(localStorage.getItem("city"));
+    console.log(lastCity);
+    if (saveLastCity !== null) {
+    const prevCityLi = document.createElement("li")
+          prevCityLi.innerHTML= citySearch.value;
+          prevCityLi.classList.add('searched-cities')
   }
-}
+    // document.getElementById("search-history").innerHTML = lastCity;
+    else {
+      return;
+    }
+};
 
 searchButton.addEventListener("click", function(event) {
   event.preventDefault();
@@ -118,7 +121,7 @@ searchButton.addEventListener("click", function(event) {
 
 function init() {
   renderLastCity(); 
-  console.log(renderLastCity);
+  // console.log(renderLastCity);
 }
 
 init();
