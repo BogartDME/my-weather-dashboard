@@ -93,12 +93,12 @@ function currentDay() {
 
 //create a function for local storage
 function saveLastCity(){
-  var cities = JSON.parse(localStorage.get('city')) || [];
+  var cities = JSON.parse(localStorage.getItem('city')) || [];
 
   var city = {
     city: citySearch.value,
   }
-  cities.push(citySeach.value);
+  cities.push(citySearch.value);
   console.log(cities);
   localStorage.setItem("city", JSON.stringify(city));
 };

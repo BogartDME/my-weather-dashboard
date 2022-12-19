@@ -2,8 +2,8 @@
 
 header {
     background-color: blue;
-    background-image: linear-gradient(to left, rgb(99, 96, 96), blue);
-    color: rgb(106, 109, 109);
+    background-image: linear-gradient(to left, white, blue);
+    color: white;
     font-size: 50px;
     text-align: center;
     height: 70px;
