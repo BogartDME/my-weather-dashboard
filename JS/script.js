@@ -3,6 +3,7 @@
 const APIKey = "b01c800a881fa88d5931029a8b88525c";
 const searchButton = document.getElementById("searchBtn");
 const citySearch = document.getElementById("city-search");
+const forecastDiv = document.querySelector("#forecast-container")
 // const el = document.getElementById("searchBtn"); 
 // console.log(el);
 // el.click();
@@ -26,7 +27,9 @@ function currentDay() {
       document.getElementById("current-city").innerHTML = data[0].name;
     });
   }
-  
+  // function removePrevList () {
+  //   document.getElementById("forecast-container")
+  // }
   //this function searches by lat and lon provided by currentDay function and also fills out the info for the five day forecast
   https: function get5day(lat, lon) {
     var requestUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
@@ -51,9 +54,8 @@ function currentDay() {
       document.getElementById("current-humidity").innerHTML =
         "Humidity:  " + response.list[0].main.humidity;
 
-      
+      $('#card').remove();
       for (let i = 0; i < 5; i++) {
-        const forecastDiv = document.querySelector("#forecast-container")
         const colDiv = document.createElement("div")
         colDiv.classList.add("col-sm-2");
         colDiv.classList.add("justify");
@@ -61,6 +63,7 @@ function currentDay() {
         cardDiv.classList.add("card");
         cardDiv.classList.add("text-center");
         cardDiv.innerHTML=("Date:"); //get date working
+        colDiv.remove(cardDiv);
         colDiv.append(cardDiv);
         
         const iconImg = document.createElement("img");
@@ -115,9 +118,11 @@ function saveLastCity(){
     };
 
 searchButton.addEventListener("click", function(event) {
+  $("div").remove(".card");
   event.preventDefault();
   saveLastCity();
   renderLastCity();
+  $(forecastDiv).empty();
 });
 
 function init() {
