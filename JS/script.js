@@ -105,13 +105,13 @@ function saveLastCity(){
 // changing your renderLastCity function to contain a for loop which iterates over the city array and creates an li for each one
   function renderLastCity(){
     var lastCity = JSON.parse(localStorage.getItem("city"));
-    for (let i = 0; i < 5; i++) {
+    console.log(lastCity, 'history data ')
+    for (let i = 0; i < lastCity.length; i++) {
       console.log(lastCity);
       const prevCityLi = document.createElement("li")
-      prevCityLi.innerHTML= citySearch.value;
-      prevCityLi.classList.add('searched-cities')
+      prevCityLi.innerHTML= lastCity[i];  /// values
+      document.querySelector('.search-history').append(prevCityLi);  // appending
   }
-    // document.getElementById("search-history").innerHTML = lastCity;
     };
 
 searchButton.addEventListener("click", function(event) {
