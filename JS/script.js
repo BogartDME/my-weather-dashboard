@@ -97,27 +97,20 @@ function currentDay() {
 
 //create a function for local storage
 function saveLastCity(){
-  var cities = JSON.parse(localStorage.getItem('city')) || [];
-
-  var city = {
-    city: citySearch.value,
-  }
-  cities.push(citySearch.value);
-  console.log(cities);
+  city = citySearch.value;
+  let cities = JSON.parse(localStorage.getItem('city')) || [];
+  cities.push(city);
   localStorage.setItem("city", JSON.stringify(cities));
-};
+  renderLastCity();
+}
 // changing your renderLastCity function to contain a for loop which iterates over the city array and creates an li for each one
   function renderLastCity(){
-    var lastCity = JSON.parse(localStorage.getItem("city"));
-    console.log(lastCity, 'history data ')
-    
-    for (let i = 0; i < lastCity.length; i++) {
-      console.log(lastCity);
-      const prevCityLi = document.createElement("li")
-      prevCityLi.innerHTML= lastCity[i];  /// values
+    let cities = JSON.parse(localStorage.getItem("city"))||[];
+    for (let i = 0; i < cities.length; i++) {
+      prevCityLi = document.createElement("li")
       document.querySelector('.search-history').append(prevCityLi);  // appending
-  }
-    };
+      prevCityLi.innerHTML = cities[i];/// values
+    }
 
 searchButton.addEventListener("click", function(event) {
   $("div").remove(".card");
