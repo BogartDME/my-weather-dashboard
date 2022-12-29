@@ -55,6 +55,7 @@ function currentDay() {
         "Humidity:  " + response.list[0].main.humidity;
 
       $('#card').remove();
+
       for (let i = 0; i < 5; i++) {
         const colDiv = document.createElement("div")
         colDiv.classList.add("col-sm-2");
@@ -77,7 +78,7 @@ function currentDay() {
         colDiv.append(descriptDiv)
         const tempDiv = document.createElement("div")
         tempDiv.classList.add('fiveDayDivs')
-        tempDiv.innerHTML= "Temp: " + response.list[i].main.temp;
+        tempDiv.innerHTML= "Temp: " + response.list[i].main.temp + "°";
         colDiv.append(tempDiv)
         const windDiv = document.createElement("div")
         windDiv.classList.add('fiveDayDivs')
@@ -109,6 +110,7 @@ function saveLastCity(){
   function renderLastCity(){
     var lastCity = JSON.parse(localStorage.getItem("city"));
     console.log(lastCity, 'history data ')
+    
     for (let i = 0; i < lastCity.length; i++) {
       console.log(lastCity);
       const prevCityLi = document.createElement("li")
@@ -124,6 +126,7 @@ searchButton.addEventListener("click", function(event) {
   renderLastCity();
   $(forecastDiv).empty();
 });
+
 
 function init() {
   renderLastCity(); 
