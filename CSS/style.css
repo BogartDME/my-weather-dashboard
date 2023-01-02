@@ -27,6 +27,7 @@ header {
     float: left;
     height: 200px;
     width: 200px; 
+    z-index:1001;
 }
 
 .search-history{
@@ -45,6 +46,7 @@ header {
 
 #current-city{
     font-size: 50px;
+    
     /* padding-left: 450px; */
 }
 
@@ -56,6 +58,7 @@ header {
 #current-description{
     font-weight: lighter;
     font-size: 42px;
+    z-index:1000;
 }
 
 #current-temp{
