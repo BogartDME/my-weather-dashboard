@@ -33,6 +33,12 @@ header {
 .search-history{
     border: black solid 2px;
     width: 340px;
+    display: block;
+    text-align: center;
+}
+
+.historyBtns {
+
 }
 
 .current-day{

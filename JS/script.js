@@ -125,7 +125,7 @@ function renderLastCity(){
   let cities = JSON.parse(localStorage.getItem("city"))||[];
   let cityList = ''
   for (let i = 0; i < cities.length; i++) {
-      cityList += `<li>${cities[i]}</li>`
+      cityList += `<button class=histBtns>${cities[i]}</button>`
   };
   document.querySelector('.search-history').innerHTML = cityList;
 }
